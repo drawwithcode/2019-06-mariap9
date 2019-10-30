@@ -1,11 +1,47 @@
-function preload(){
-  // put preload code here
+var ill;
+var constellations;
+
+var h1;
+
+
+function preload() {
+  ill = loadImage("./assets/astr.png");
 }
 
+//
 function setup() {
-  // put setup code here
+  createCanvas(windowWidth, windowHeight);
+  background(20);
+  imageMode(CENTER);
+  h1 = createElement('h1', 'Help me find the constellations!');
+  h1.position(70, 530);
+  h1.style("font-size", "15pt");
+  h1.style("font-family", "monospace");
+  h1.style("color", "#545454");
+
+
+  constellations = selectAll('p');
+  for (var i = 0; i < constellations.length; i++) {
+    constellations[i].position(random(width), random(400));
+    constellations[i].mouseOver(changeColor);
+    constellations[i].mouseOut(revertColor);
+  }
 }
 
 function draw() {
-  // put drawing code here
+  image(ill, width / 2, (height / 2) - 48, ill.width, ill.height);
+}
+
+function changeColor() {
+  this.style("color", "#fffbed");
+  this.style("font-size", "15pt");
+}
+
+function revertColor() {
+  this.style("color", "#141414");
+}
+
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
