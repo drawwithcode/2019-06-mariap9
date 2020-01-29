@@ -29,7 +29,7 @@ function setup() {
 }
 
 function draw() {
-  image(ill, width / 2, (height / 2) - 48, ill.width, ill.height);
+  image(ill, width / 2, (height / 2) + 40, ill.width/1.5, ill.height/1.5);
 }
 
 function changeColor() {
